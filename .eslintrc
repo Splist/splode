@@ -1,0 +1,20 @@
+{
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ],
+    "rules":  {
+
+        // Typescript
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/explicit-function-return-type": "off"
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions":  {
+        "ecmaVersion":  2019
+    },
+    "env": {
+        "commonjs": true
+    }
+}
