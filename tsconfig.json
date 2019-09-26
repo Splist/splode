@@ -5,6 +5,7 @@
         "lib": ["esnext", "dom"],
         "module": "commonjs",
         "strict": true,
+        "strictPropertyInitialization": false,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
     },
