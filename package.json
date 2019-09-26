@@ -20,9 +20,6 @@
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
     "eslint": "^6.4.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "ts-node-dev": "^1.0.0-pre.43",
     "typescript": "^3.6.3"
