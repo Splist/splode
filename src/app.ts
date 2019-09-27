@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
-import { UtilModule } from './util';
+import { MiscModule } from './misc';
 import { MessageModule } from './message';
 
 // [TODO] Add better config for everything in this file
@@ -25,7 +25,7 @@ const RootGraphQLModule = GraphQLModule.forRoot({
     imports: [
         RootTypeOrmModule,
         RootGraphQLModule,
-        UtilModule,
+        MiscModule,
         MessageModule,
     ],
 })

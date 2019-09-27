@@ -16,4 +16,4 @@ const GlobalPubSub = {
     exports: [GlobalPubSub],
     providers: [GlobalPubSub],
 })
-export class UtilModule {}
+export class MiscModule {}

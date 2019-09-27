@@ -2,7 +2,7 @@ import { Resolver, Query, Args, Mutation, Subscription } from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { PubSub } from 'graphql-subscriptions';
-import { Input, InjectPubsub } from '../util';
+import { Input, InjectPubsub } from '../misc';
 import { Message } from './entity';
 import * as input from './input';
 
