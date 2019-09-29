@@ -16,9 +16,11 @@ const RootTypeOrmModule = TypeOrmModule.forRoot({
 const RootGraphQLModule = GraphQLModule.forRoot({
 
     // autoSchemaFile must be true or string for it to work
-    autoSchemaFile: true,
+    autoSchemaFile: 'schema.graphql',
     playground: true,
+
     installSubscriptionHandlers: true,
+    subscriptions: '/',
 });
 
 @Module({
