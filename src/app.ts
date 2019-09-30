@@ -19,6 +19,7 @@ const RootGraphQLModule = GraphQLModule.forRoot({
     autoSchemaFile: 'schema.graphql',
     playground: true,
 
+    path: '/',
     installSubscriptionHandlers: true,
     subscriptions: '/',
 });

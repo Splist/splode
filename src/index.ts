@@ -12,5 +12,7 @@ void async function() {
         transform: true,
     }));
 
+    app.enableCors();
+
     await app.listen(8080);
 }();
