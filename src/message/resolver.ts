@@ -25,6 +25,9 @@ export class MessageResolver {
         return this.repo.find({
             skip,
             take,
+            order: {
+                id: 'DESC',
+            },
         });
     }
 
