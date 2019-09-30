@@ -11,7 +11,7 @@ export class MessagesInput {
 
     @Field()
     @IsInt()
-    @Min(0)
+    @Min(1)
     @Max(50)
     take: number;
 }
