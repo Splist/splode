@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { MiscModule } from './misc';
 import { MessageModule } from './message';
+import { config } from '../data/config';
 
 // [TODO] Add better config for everything in this file
 
@@ -16,8 +17,8 @@ const RootTypeOrmModule = TypeOrmModule.forRoot({
 const RootGraphQLModule = GraphQLModule.forRoot({
 
     // autoSchemaFile must be true or string for it to work
-    autoSchemaFile: 'schema.graphql',
-    playground: true,
+    autoSchemaFile: config.graphql.generateSchema ? 'schema.graphql' : true,
+    playground: Boolean(config.graphql.enablePlayground),
 
     path: '/',
     installSubscriptionHandlers: true,
