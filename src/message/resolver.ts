@@ -1,8 +1,8 @@
-import { Resolver, Query, Args, Mutation, Subscription } from '@nestjs/graphql';
+import { Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { PubSub } from 'graphql-subscriptions';
-import { Input, InjectPubsub } from '../misc';
+import { Repository } from 'typeorm';
+import { InjectPubsub, Input } from '../misc';
 import { Message } from './entity';
 import * as input from './input';
 
@@ -17,7 +17,7 @@ export class MessageResolver {
         private readonly pubsub: PubSub
     ) {}
 
-    @Query(returns => [Message])
+    @Query(() => [Message])
     messages(@Input() { skip, take }: input.MessagesInput) {
         return this.repo.find({
             skip,
@@ -28,12 +28,12 @@ export class MessageResolver {
         });
     }
 
-    @Query(returns => Message, { nullable: true })
+    @Query(() => Message, { nullable: true })
     message(@Input() { id }: input.MessageInput) {
         return this.repo.findOne(id);
     }
 
-    @Mutation(returns => Message)
+    @Mutation(() => Message)
     async sendMessage(@Input() input: input.SendMessageInput) {
         const newMessage = await this.repo.save(input);
 
@@ -42,7 +42,7 @@ export class MessageResolver {
         return newMessage;
     }
 
-    @Subscription(returns => Message)
+    @Subscription(() => Message)
     newMessage() {
         return this.pubsub.asyncIterator(NEW_MESSAGE);
     }
