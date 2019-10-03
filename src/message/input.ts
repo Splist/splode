@@ -1,9 +1,8 @@
-import { InputType, Field, Int } from 'type-graphql';
-import { IsInt, Min, Length, Max } from 'class-validator';
+import { IsInt, Length, Max, Min } from 'class-validator';
+import { Field, InputType, Int } from 'type-graphql';
 
 @InputType()
 export class MessagesInput {
-
     @Field()
     @IsInt()
     @Min(0)
@@ -18,8 +17,7 @@ export class MessagesInput {
 
 @InputType()
 export class MessageInput {
-
-    @Field(type => Int)
+    @Field(() => Int)
     @IsInt()
     @Min(0)
     id: string;
@@ -27,7 +25,6 @@ export class MessageInput {
 
 @InputType()
 export class SendMessageInput {
-
     @Field()
     @Length(1, 2000)
     content: string;

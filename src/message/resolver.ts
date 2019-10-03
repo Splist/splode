@@ -10,38 +10,31 @@ const NEW_MESSAGE = 'NEW_MESSAGE';
 
 @Resolver(() => Message)
 export class MessageResolver {
-
     constructor(
         @InjectRepository(Message)
         private readonly repo: Repository<Message>,
         @InjectPubsub()
-        private readonly pubsub: PubSub,
+        private readonly pubsub: PubSub
     ) {}
 
     @Query(returns => [Message])
-    messages(
-        @Input() { skip, take }: input.MessagesInput
-    ) {
+    messages(@Input() { skip, take }: input.MessagesInput) {
         return this.repo.find({
             skip,
             take,
             order: {
-                id: 'DESC',
-            },
+                id: 'DESC'
+            }
         });
     }
 
     @Query(returns => Message, { nullable: true })
-    message(
-        @Input() { id }: input.MessageInput,
-    ) {
+    message(@Input() { id }: input.MessageInput) {
         return this.repo.findOne(id);
     }
 
     @Mutation(returns => Message)
-    async sendMessage(
-        @Input() input: input.SendMessageInput,
-    ) {
+    async sendMessage(@Input() input: input.SendMessageInput) {
         const newMessage = await this.repo.save(input);
 
         this.pubsub.publish(NEW_MESSAGE, { newMessage });

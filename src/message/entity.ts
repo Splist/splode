@@ -1,11 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { ObjectType, Field, Int } from 'type-graphql';
+import { Field, Int, ObjectType } from 'type-graphql';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
 @Entity()
 export class Message {
-
-    @Field(type => Int)
+    @Field(() => Int)
     @PrimaryGeneratedColumn()
     id: number;
 

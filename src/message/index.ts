@@ -7,8 +7,6 @@ const OrmModule = TypeOrmModule.forFeature([Message]);
 
 @Module({
     imports: [OrmModule],
-    providers: [
-        MessageResolver,
-    ],
+    providers: [MessageResolver]
 })
 export class MessageModule {}

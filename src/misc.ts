@@ -8,12 +8,12 @@ export const InjectPubsub = () => Inject('PUB_SUB');
 
 const GlobalPubSub = {
     provide: 'PUB_SUB',
-    useValue: new PubSub(),
+    useValue: new PubSub()
 };
 
 @Global()
 @Module({
     exports: [GlobalPubSub],
-    providers: [GlobalPubSub],
+    providers: [GlobalPubSub]
 })
 export class MiscModule {}
