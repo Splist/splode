@@ -27,7 +27,8 @@ jobs:
               run: yarn run build
             - name: Generate TypeDocs
               run: yarn run generate-docs
-            - uses: actions/upload-artifact@master
+            - name: Upload docs
+              uses: actions/upload-artifact@master
               with:
                   name: typedoc
                   path: ./docs
