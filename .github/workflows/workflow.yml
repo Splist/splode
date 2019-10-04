@@ -14,7 +14,7 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v1
               with:
-                  node-version: "10.x"
+                  node-version: '10.x'
             - name: Install Yarn
               run: curl -o- -L https://yarnpkg.com/install.sh | bash
             - name: Install dependencies
