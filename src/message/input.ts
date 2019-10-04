@@ -17,6 +17,7 @@ export class MessagesInput {
 
 @InputType()
 export class MessageInput {
+    /** ID of the message */
     @Field(() => Int)
     @IsInt()
     @Min(0)
@@ -25,6 +26,7 @@ export class MessageInput {
 
 @InputType()
 export class SendMessageInput {
+    /** The content of the message */
     @Field()
     @Length(1, 2000)
     content: string;
