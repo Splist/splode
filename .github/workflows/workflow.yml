@@ -37,6 +37,7 @@ jobs:
               with:
                   name: typedoc
                   path: ./docs
+            - uses: actions/setup-ruby@v1
             - name: Send Discord Webhook Notification
               env:
                   JOB_STATUS: ${{ job.status }}
