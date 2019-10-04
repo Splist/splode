@@ -3,11 +3,13 @@ import { Field, InputType, Int } from 'type-graphql';
 
 @InputType()
 export class MessagesInput {
+    /** How many messages to skip starting from the latest */
     @Field()
     @IsInt()
     @Min(0)
     skip: number;
 
+    /** How many messages to select after skipping */
     @Field()
     @IsInt()
     @Min(1)

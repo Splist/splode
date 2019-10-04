@@ -1,5 +1,8 @@
 import { Config } from '../src/config';
 
 export const config: Config = {
-    graphql: {}
+    graphql: {
+        generateSchema: true,
+        enablePlayground: true,
+    }
 };
