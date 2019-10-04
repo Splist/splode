@@ -5,8 +5,6 @@ import { config } from '../data/config';
 import { MessageModule } from './message';
 import { MiscModule } from './misc';
 
-// [TODO] Add better config for everything in this file
-
 const RootTypeOrmModule = TypeOrmModule.forRoot({
     type: 'sqlite',
     database: __dirname + '/../data/splist.sqlite',
