@@ -4,7 +4,7 @@
         "experimentalDecorators": true,
         "lib": ["esnext"],
         "locale": "en",
-        "module": "commonjs",
+        "module": "es2015",
         "outDir": "compiled",
         "strict": true,
         "strictPropertyInitialization": false,
