@@ -3,7 +3,7 @@
 > Splist + Node
 
 [![style: splist](https://img.shields.io/badge/style-splist-730da7)](https://github.com/Splist/code-style)
-[![Discord](https://discordapp.com/api/guilds/615016062412390410/embed.png)](https://discord.gg/qWn8Mvh)
+[![Discord](![Discord](https://img.shields.io/discord/615016062412390410?color=7289da&logo=discord&logoColor=fff))](https://discord.gg/qWn8Mvh)
 
 The official server implementation of Splist.
 
