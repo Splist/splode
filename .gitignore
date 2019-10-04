@@ -6,3 +6,6 @@ data/splist.sqlite
 
 # TypeDoc output
 docs
+
+# TypeScript output
+compiled
