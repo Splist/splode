@@ -4,7 +4,7 @@
 
 [![style: splist](https://img.shields.io/badge/style-splist-730da7)](https://github.com/Splist/code-style)
 
-The offical server implimention of Splist.
+The offical server implementation of Splist.
 
 ## Usage
 
