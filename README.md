@@ -21,7 +21,7 @@ TODO
 -   [**Jdender~**](https://github.com/Jdender) - _Lead Developer_
 -   [**PizzaFox**](https://github.com/PizzaFox) - _Maintainer & Developer_
 
-Also, check the list of [contributors](https://github.com/splist/splode/contributors) who did minor contributions.
+Also, check the list of [contributors](https://github.com/splist/splode/contributors) who made minor contributions.
 
 ## Built With
 
