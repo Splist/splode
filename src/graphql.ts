@@ -12,9 +12,7 @@ const GlobalPubSub = {
 @Global()
 @Module({})
 export class RootGraphQLModule {
-
     static register(): DynamicModule {
-
         const ConfigedModule = GraphQLModule.forRoot({
             // autoSchemaFile must be true or string for it to work
             autoSchemaFile: config.graphql.generateSchema ? 'schema.graphql' : true,
@@ -28,7 +26,7 @@ export class RootGraphQLModule {
             module: RootGraphQLModule,
             imports: [ConfigedModule],
             exports: [GlobalPubSub],
-            providers: [GlobalPubSub],
+            providers: [GlobalPubSub]
         };
     }
 }
