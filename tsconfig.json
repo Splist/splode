@@ -1,15 +1,15 @@
 {
     "compilerOptions": {
-        "locale": "en",
-        "target": "es2019",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "lib": ["esnext"],
+        "locale": "en",
         "module": "commonjs",
+        "outDir": "compiled",
         "strict": true,
         "strictPropertyInitialization": false,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "outDir": "compiled"
+        "target": "es2019"
     },
-    "include": ["./src/**/*", "./data/**/*"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules"],
+    "include": ["./src/**/*", "./data/**/*"]
 }
