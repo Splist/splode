@@ -7,10 +7,11 @@
         "Jdender~ <jdenderplays@gmail.com> (https://github.com/Jdender)"
     ],
     "scripts": {
-        "start": "ts-node-dev --respawn --files .",
-        "lint": "eslint --ignore-path .gitignore ./**/*.ts",
+        "autofix": "yarn lint --fix; yarn check-formatting --write",
+        "build": "tsc",
         "check-formatting": "prettier --ignore-path .gitignore --check \"./**/*.{{j,t}{s,sx},flow,{{sc,c},le}ss,json,m{d,dx},{y,ya}ml}\"",
-        "autofix": "yarn lint --fix; yarn check-formatting --write"
+        "lint": "eslint --ignore-path .gitignore ./**/*.ts",
+        "start": "ts-node-dev --respawn --files ."
     },
     "dependencies": {
         "@nestjs/common": "^6.7.2",
