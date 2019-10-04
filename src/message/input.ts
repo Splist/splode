@@ -21,7 +21,7 @@ export class MessageInput {
     @Field(() => Int)
     @IsInt()
     @Min(0)
-    id: string;
+    id: number;
 }
 
 @InputType()
