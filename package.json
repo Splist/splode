@@ -10,6 +10,7 @@
         "autofix": "yarn lint --fix; yarn check-formatting --write",
         "build": "tsc",
         "check-formatting": "prettier --ignore-path .gitignore --check \"./**/*.{{j,t}{s,sx},flow,{{sc,c},le}ss,json,m{d,dx},{y,ya}ml}\"",
+        "generate-docs": "typedoc",
         "lint": "eslint --ignore-path .gitignore ./**/*.ts",
         "start": "ts-node-dev --respawn --files ."
     },
@@ -43,6 +44,7 @@
         "prettier": "^1.18.2",
         "ts-node": "^8.4.1",
         "ts-node-dev": "^1.0.0-pre.43",
+        "typedoc": "^0.15.0",
         "typescript": "^3.6.3"
     }
 }
