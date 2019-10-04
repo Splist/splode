@@ -25,6 +25,11 @@ jobs:
               run: yarn run lint
             - name: Compile TypeScript
               run: yarn run build
+            - name: Upload compiled TypeScript
+              uses: actions/upload-artifact@master
+              with:
+                  name: compiled
+                  path: ./dist
             - name: Generate TypeDocs
               run: yarn run generate-docs
             - name: Upload docs
