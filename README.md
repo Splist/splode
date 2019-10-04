@@ -1,4 +1,5 @@
 # Splode
+
 > Splist + Node
 
 [![style: splist](https://img.shields.io/badge/style-splist-730da7)](https://github.com/Splist/code-style)
@@ -15,8 +16,8 @@ TODO
 
 ## Authors
 
-* **Jdender~** - *Lead Developer* - [GitHub](https://github.com/jdender)
-* **PizzaFox** - *Maintainer & Developer* - [GitHub](https://github.com/pizzafox)
+-   **Jdender~** - _Lead Developer_ - [GitHub](https://github.com/jdender)
+-   **PizzaFox** - _Maintainer & Developer_ - [GitHub](https://github.com/pizzafox)
 
 Also, check the list of [contributors](https://github.com/splist/splode/contributors) who did minor contributions.
 
