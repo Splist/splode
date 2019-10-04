@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { config } from '../data/config';
 import { MessageModule } from './message';
-import { MiscModule } from './misc';
+import { RootGraphQLModule } from './graphql';
 
 const RootTypeOrmModule = TypeOrmModule.forRoot({
     type: 'sqlite',
@@ -12,17 +10,7 @@ const RootTypeOrmModule = TypeOrmModule.forRoot({
     synchronize: true
 });
 
-const RootGraphQLModule = GraphQLModule.forRoot({
-    // autoSchemaFile must be true or string for it to work
-    autoSchemaFile: config.graphql.generateSchema ? 'schema.graphql' : true,
-    playground: Boolean(config.graphql.enablePlayground),
-
-    path: '/',
-    installSubscriptionHandlers: true,
-    subscriptions: '/'
-});
-
 @Module({
-    imports: [RootTypeOrmModule, RootGraphQLModule, MiscModule, MessageModule]
+    imports: [RootTypeOrmModule, RootGraphQLModule.register(), MessageModule]
 })
 export class AppModule {}
