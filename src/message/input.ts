@@ -19,7 +19,7 @@ export class MessagesInput {
 
 @InputType()
 export class MessageInput {
-    /** ID of the message */
+    /** ID of the Message to fetch */
     @Field(() => Int)
     @IsInt()
     @Min(0)
@@ -28,7 +28,7 @@ export class MessageInput {
 
 @InputType()
 export class SendMessageInput {
-    /** The content of the message */
+    /** What contents to send in the new Message */
     @Field()
     @Length(1, 2000)
     content: string;

@@ -2,17 +2,17 @@ import { Field, Int, ObjectType } from 'type-graphql';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 /**
- * A message that was sent.
+ * A Message sent in a TextChannel
  */
 @ObjectType()
 @Entity()
 export class Message {
-    /** The ID of the message */
+    /** The Message's ID */
     @Field(() => Int)
     @PrimaryGeneratedColumn()
     id: number;
 
-    /** The content of the message */
+    /** The contents of the Message */
     @Field()
     @Column()
     content: string;
