@@ -4,5 +4,8 @@ export const config: Config = {
     graphql: {
         generateSchema: true,
         enablePlayground: true
+    },
+    jwt: {
+        secret: 'You should probably change this'
     }
 };

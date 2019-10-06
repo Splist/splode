@@ -9,4 +9,14 @@ export interface Config {
         /** Whether or not to enable the playground */
         enablePlayground?: boolean;
     };
+
+    /** Json Web Token options */
+    jwt: {
+        /**
+         * The secret used to sign tokens
+         * MUST KEEP SECRET AT ALL COSTS
+         * ANYONE WITH THIS STRING CAN FORGE FAKE TOKENS AND LOG IN AS ANYONE
+         */
+        secret: string;
+    };
 }
