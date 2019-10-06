@@ -9,39 +9,34 @@ const GlobalPubSub = {
     useValue: new PubSub()
 };
 
-@Global()
-@Module({})
-export class RootGraphQLModule {
-    static register(): DynamicModule {
-        const ConfigedModule = GraphQLModule.forRoot({
-            // autoSchemaFile must be true or string for it to work
-            autoSchemaFile: config.graphql.generateSchema ? 'schema.graphql' : true,
-            playground: Boolean(config.graphql.enablePlayground),
+const ConfigedModule = GraphQLModule.forRoot({
+    // autoSchemaFile must be true or string for it to work
+    autoSchemaFile: config.graphql.generateSchema ? 'schema.graphql' : true,
+    playground: Boolean(config.graphql.enablePlayground),
 
-            context({ req, connection }) {
-                const token = connection ? connection.context.Authorization : req.headers.authorization;
-
-                return {
-                    req: {
-                        headers: {
-                            authorization: token
-                        }
-                    }
-                };
-            },
-
-            installSubscriptionHandlers: true,
-            subscriptions: '/'
-        });
+    context({ req, connection }) {
+        const token = connection ? connection.context.Authorization : req.headers.authorization;
 
         return {
-            module: RootGraphQLModule,
-            imports: [ConfigedModule],
-            exports: [GlobalPubSub],
-            providers: [GlobalPubSub]
+            req: {
+                headers: {
+                    authorization: token
+                }
+            }
         };
-    }
-}
+    },
+
+    installSubscriptionHandlers: true,
+    subscriptions: '/'
+});
+
+@Global()
+@Module({
+    imports: [ConfigedModule],
+    exports: [GlobalPubSub],
+    providers: [GlobalPubSub]
+})
+export class RootGraphQLModule {}
 
 export const Input = () => Args('input');
 

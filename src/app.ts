@@ -12,6 +12,6 @@ const RootTypeOrmModule = TypeOrmModule.forRoot({
 });
 
 @Module({
-    imports: [RootTypeOrmModule, RootGraphQLModule.register(), UserModule, MessageModule]
+    imports: [RootTypeOrmModule, RootGraphQLModule, UserModule, MessageModule]
 })
 export class AppModule {}
