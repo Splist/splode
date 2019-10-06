@@ -5,10 +5,12 @@ import { Repository } from 'typeorm';
 import { InjectPubsub, Input } from '../graphql';
 import { Message } from './entity';
 import * as input from './input';
+import { Protected } from '../user/auth';
 
 const NEW_MESSAGE = 'NEW_MESSAGE';
 
 @Resolver(() => Message)
+@Protected()
 export class MessageResolver {
     constructor(
         @InjectRepository(Message)
