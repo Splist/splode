@@ -1,5 +1,5 @@
 import { Args } from '@nestjs/graphql';
-import { Inject, Module, Global, DynamicModule, createParamDecorator } from '@nestjs/common';
+import { Inject, Module, Global, createParamDecorator } from '@nestjs/common';
 import { PubSub } from 'graphql-subscriptions';
 import { GraphQLModule } from '@nestjs/graphql';
 import { config } from '../data/config';
