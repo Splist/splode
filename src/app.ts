@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MessageModule } from './message';
 import { RootGraphQLModule } from './graphql';
+import { UserModule } from './user';
 
 const RootTypeOrmModule = TypeOrmModule.forRoot({
     type: 'sqlite',
@@ -11,6 +12,6 @@ const RootTypeOrmModule = TypeOrmModule.forRoot({
 });
 
 @Module({
-    imports: [RootTypeOrmModule, RootGraphQLModule.register(), MessageModule]
+    imports: [RootTypeOrmModule, RootGraphQLModule.register(), UserModule, MessageModule]
 })
 export class AppModule {}
