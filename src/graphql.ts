@@ -1,5 +1,5 @@
 import { Args } from '@nestjs/graphql';
-import { Inject, Module, Global, DynamicModule } from '@nestjs/common';
+import { Inject, Module, Global, DynamicModule, createParamDecorator } from '@nestjs/common';
 import { PubSub } from 'graphql-subscriptions';
 import { GraphQLModule } from '@nestjs/graphql';
 import { config } from '../data/config';
@@ -18,6 +18,18 @@ export class RootGraphQLModule {
             autoSchemaFile: config.graphql.generateSchema ? 'schema.graphql' : true,
             playground: Boolean(config.graphql.enablePlayground),
 
+            context({ req, connection }) {
+                const token = connection ? connection.context.Authorization : req.headers.authorization;
+
+                return {
+                    req: {
+                        headers: {
+                            authorization: token
+                        }
+                    }
+                };
+            },
+
             installSubscriptionHandlers: true,
             subscriptions: '/'
         });
@@ -34,3 +46,5 @@ export class RootGraphQLModule {
 export const Input = () => Args('input');
 
 export const InjectPubsub = () => Inject('PUB_SUB');
+
+export const CurrentUser = createParamDecorator((data, [, , ctx]) => ctx.req.user);
