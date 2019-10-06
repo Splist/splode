@@ -24,6 +24,9 @@ type Mutation {
 type Query {
   messages(input: MessagesInput!): [Message!]!
   message(input: MessageInput!): Message
+  self: User!
+  users: [User!]!
+  user(input: UserInput!): User
 }
 
 input SendMessageInput {
@@ -32,4 +35,13 @@ input SendMessageInput {
 
 type Subscription {
   newMessage: Message!
+}
+
+type User {
+  id: Int!
+  username: String!
+}
+
+input UserInput {
+  id: Int!
 }
