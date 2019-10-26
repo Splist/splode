@@ -11,6 +11,7 @@ input CreatUserInput {
 type Message {
   id: Int!
   content: String!
+  author: User!
 }
 
 input MessageInput {

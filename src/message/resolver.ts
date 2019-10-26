@@ -2,10 +2,11 @@ import { Mutation, Query, Resolver, Subscription } from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
 import { PubSub } from 'graphql-subscriptions';
 import { Repository } from 'typeorm';
-import { InjectPubsub, Input } from '../graphql';
+import { InjectPubsub, Input, CurrentUser } from '../graphql';
 import { Message } from './entity';
 import * as input from './input';
 import { Protected } from '../user/auth';
+import { User } from '../user/entity';
 
 const NEW_MESSAGE = 'NEW_MESSAGE';
 
@@ -36,8 +37,13 @@ export class MessageResolver {
     }
 
     @Mutation(() => Message)
-    async sendMessage(@Input() input: input.SendMessageInput) {
-        const newMessage = await this.repo.save(input);
+    async sendMessage(@Input() input: input.SendMessageInput, @CurrentUser() author: User) {
+        const newMessage = await this.repo.save(
+            this.repo.create({
+                ...input,
+                author
+            })
+        );
 
         this.pubsub.publish(NEW_MESSAGE, { newMessage });
 

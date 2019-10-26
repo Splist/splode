@@ -1,5 +1,6 @@
 import { Field, Int, ObjectType } from 'type-graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { User } from '../user/entity';
 
 /**
  * A Message sent in a TextChannel
@@ -16,4 +17,8 @@ export class Message {
     @Field()
     @Column()
     content: string;
+
+    @Field()
+    @ManyToOne(() => User, user => user.messages, { lazy: true, nullable: false })
+    author: User;
 }
