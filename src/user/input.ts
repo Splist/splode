@@ -12,7 +12,6 @@ export class UserInput {
 
 @InputType()
 export class CreatUserInput {
-
     @Field()
     @Length(1, 50)
     username: string;

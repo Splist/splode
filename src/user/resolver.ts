@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { CurrentUser, Input } from '../graphql';
 import { Protected } from './auth';
 import * as input from './input';
+import { UnauthorizedException } from '@nestjs/common';
 
 @Resolver(() => User)
 @Protected()
@@ -30,7 +31,9 @@ export class UserResolver {
     }
 
     @Mutation(() => User)
-    createUser(@Input() input: input.CreatUserInput) {
+    createUser(@Input() input: input.CreatUserInput, @CurrentUser() user: User) {
+        if (user.username !== 'root')
+            throw new UnauthorizedException('Only the root user can create new users at this time.');
         return this.repo.save(input);
     }
 }
