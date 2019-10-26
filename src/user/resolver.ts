@@ -1,4 +1,4 @@
-import { Resolver, Query } from '@nestjs/graphql';
+import { Resolver, Query, Mutation } from '@nestjs/graphql';
 import { User } from './entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -27,5 +27,10 @@ export class UserResolver {
     @Query(() => User, { nullable: true })
     user(@Input() { id }: input.UserInput) {
         return this.repo.findOne(id);
+    }
+
+    @Mutation(() => User)
+    createUser(@Input() input: input.CreatUserInput) {
+        return this.repo.save(input);
     }
 }

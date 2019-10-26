@@ -3,6 +3,11 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input CreatUserInput {
+  username: String!
+  password: String!
+}
+
 type Message {
   id: Int!
   content: String!
@@ -19,6 +24,7 @@ input MessagesInput {
 
 type Mutation {
   sendMessage(input: SendMessageInput!): Message!
+  createUser(input: CreatUserInput!): User!
 }
 
 type Query {
